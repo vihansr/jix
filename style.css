@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+#jake-btn {
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    position: relative;
+    z-index: 10;
+}
+
+#image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+body.joyful {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-image: url('lillies_bg.png'); 
+    background-repeat: repeat;
+    background-size: 400px; 
+    background-color: #ffe6f2;
+}
+
+body.joyful #jake-btn {
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: #ffb7b2;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: scale(1.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+}
+
+.joy-img {
+    position: absolute;
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.joy-img.emerge {
+    opacity: 1;
+    animation: dance 3s ease-in-out infinite alternate;
+}
+
+@keyframes dance {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) scale(1.05) rotate(5deg); }
+    50% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    75% { transform: translate(-50%, -50%) scale(1.05) rotate(-5deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
